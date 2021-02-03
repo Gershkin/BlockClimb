@@ -1,0 +1,231 @@
+/*Author: Sam Gershkovich 000801766
+  Date: November 1, 2020
+*/
+
+
+/*General*/
+:root {
+    --arcade-width: 0px;
+    --arcade-height: 0px;
+}
+@font-face {
+    font-family: bit;
+    src: url(VCR_OSD_MONO_1.001.ttf);
+}
+*{
+    font-size: min(max(calc(var(--arcade-width)/50),1px),40px);
+    font-family: bit;
+}
+.hidden {
+    display: none !important;
+}
+body {
+    background-image: URL("../images/arcade-perspective.jpg");
+    
+    height: calc(var(--arcade-height) / 1.7437);
+}
+#formContainer{
+    overflow: scroll;
+    display: block;
+    margin: auto;
+    overflow-x: hidden !important;
+}
+input[type=button], input[type=submit]{
+    display: block;
+    margin: min(max(calc(var(--arcade-width)/50),2px),20px) auto;
+    padding: min(max(calc(var(--arcade-width)/50),1px),15px);
+    width: 100%;
+}
+input[type=color]{
+    width: calc(var(--arcade-width)/10);
+    height: calc(var(--arcade-width)/20);
+}
+input[type=checkbox], input[type=radio]{
+    width: min(max(calc(var(--arcade-width)/70),2px),100px);
+    height: min(max(calc(var(--arcade-width)/70),2px),100px);
+}
+input[type=range]{
+    height: calc(var(--arcade-width)/90);
+    width: calc(var(--arcade-width)/6);
+}
+/*Canvas*/
+#canvas {
+    margin: auto;
+    display: block;
+    margin: auto;
+    margin-top: 100px;
+    width: min(max(80vw, 100px), 500px);
+    height: 50vh;
+    background-color: white;
+    border-radius: 3%;
+}
+img {
+    display: none;
+}
+
+
+/*Index.php*/
+#mainMenu{
+    width: auto;
+    margin: auto;
+    background-color: white;
+    display: table;
+    background-color: transparent;
+}
+#main{
+    width: 100%;
+    height: 100%;
+}
+
+/*Leaderboard*/
+#leaderboard{
+    height: inherit;
+}
+table{
+    margin: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+}
+table th{
+    background-color: #ececec;
+}
+
+table tbody tr:nth-child(even) td{
+    background-color: #ededed;
+}
+
+/*How To*/
+#howTo{
+    height: inherit;
+}
+
+/*Settings*/
+#settings{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    justify-items: center;
+    height: inherit;
+}
+#settings input{
+    display: inline-block;
+}
+#p1Color{
+    grid-column: 1;
+    grid-row: 2;
+}
+#p2Color{
+    grid-column: 2;
+    grid-row: 2;
+}
+#p1Random{
+    grid-column: 1;
+    grid-row: 2;
+    width: calc(var(--arcade-width)/9.5);
+    padding: min(max(calc(var(--arcade-width)/120),1px),50px);
+    margin: min(max(calc(var(--arcade-width)/275),2px),5px) auto;
+    height: fit-content;
+}
+#p2Random{
+    grid-column: 2;
+    grid-row: 2;
+    width: calc(var(--arcade-width)/9.5);
+    padding: min(max(calc(var(--arcade-width)/120),1px),50px);
+    margin: min(max(calc(var(--arcade-width)/275),2px),5px) auto;
+    height: fit-content;
+}
+#collisionSettings{
+    grid-column: 1/span2;
+    justify-content: center;
+}
+#settingsBack{
+    grid-row: 7;
+    grid-column: 1/span2;
+}
+#collisionSettings label{
+    display: table;
+    margin: auto;
+}
+#p1Color input, #p2Color input{
+    display: block;
+}
+
+#blockOutlines, #showHighScores{
+    margin-top: .5em;
+    grid-column: 1/span2;
+    grid-row:4;
+}
+#blockOutlines input, #showHighScores input{
+    display: inline-block;
+}
+
+#showHighScores{
+    margin-top: .5em;
+    grid-column: 1/span2;
+    grid-row:5;
+}
+#showHighScores input{
+    display: inline-block;
+}
+
+/*Sound settings*/
+#soundButton{
+    grid-column: 1/span2;
+    grid-row: 6;
+}
+
+
+
+/*Game.php*/
+audio{
+    display: none;
+}
+#mobile-controls{
+    position: relative;
+    top: calc(var(--arcade-width)/3);
+    left: 10%;
+}
+#mobile-controls button{
+    padding: min(max(calc(var(--arcade-width)/20),1px),50px);
+}
+#jump{
+    margin-left: 5em;
+}
+#submitScoreForm, #pauseMenu{
+    position: absolute;
+    margin: auto;
+    width: auto;
+    padding: min(max(calc(var(--arcade-width)/50),1px),20px);
+    text-align: center;
+    background-color: white;
+    filter: drop-shadow(0px 0px 9px #2121216b);
+    border-radius: calc(var(--arcade-width)/100);
+}
+#score{
+    font-size: min(max(calc(var(--arcade-width)/20),1px),60px);
+    margin: 5px;
+}
+#best{
+    color: red;
+    margin: 5px;
+    margin-bottom: 20px; 
+}
+#submit{
+    display: inline-block;
+    width: auto;
+    padding: 2px;
+}
+
+#mobile-controls{
+    display: none;
+}
+
+@media only screen and (max-width: 600px){
+    #mobile-controls{
+        display: inline !important;
+    }
+}
+
+
